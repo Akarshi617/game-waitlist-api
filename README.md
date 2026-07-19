@@ -1,4 +1,4 @@
-## Getting Started
+## Game-Waitlist-API
 
 ### Prerequisites
 - Node.js installed on your system
