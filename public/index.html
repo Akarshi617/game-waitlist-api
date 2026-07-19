@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Waitlist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">◧</span>
+        <span class="brand-name">Waitlist</span>
+      </div>
+      <nav class="side-nav">
+        <button class="side-link active">Dashboard</button>
+        <button class="side-link">Tickets</button>
+        <button class="side-link">Settings</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Good afternoon</h1>
+          <p class="subtitle">Here's what's queued right now</p>
+        </div>
+      </header>
+
+      <section class="stats-row">
+        <div class="stat-card">
+          <span class="stat-icon">◔</span>
+          <div class="stat-num" id="statWaiting">0</div>
+          <div class="stat-label">Waiting</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">◑</span>
+          <div class="stat-num" id="statNotified">0</div>
+          <div class="stat-label">Notified</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">◕</span>
+          <div class="stat-num" id="statSeated">0</div>
+          <div class="stat-label">Seated</div>
+        </div>
+      </section>
+
+      <div class="content-grid">
+        <section class="add-panel" aria-labelledby="addLabel">
+          <h2 id="addLabel">Issue a ticket</h2>
+          <form id="addForm" novalidate>
+            <div class="field">
+              <label for="playerName">Player name</label>
+              <input type="text" id="playerName" name="playerName" autocomplete="off" />
+              <span class="error" id="playerNameError" role="alert"></span>
+            </div>
+            <div class="field">
+              <label for="gameName">Game</label>
+              <input type="text" id="gameName" name="gameName" autocomplete="off" />
+              <span class="error" id="gameNameError" role="alert"></span>
+            </div>
+            <button type="submit" id="submitBtn">Issue ticket</button>
+          </form>
+        </section>
+
+        <section class="list-panel" aria-labelledby="listLabel">
+          <div class="list-head">
+            <h2 id="listLabel">Today's queue</h2>
+            <nav class="tabs" role="tablist" aria-label="Filter tickets by status">
+              <button class="tab active" role="tab" aria-selected="true" data-status="all">All</button>
+              <button class="tab" role="tab" aria-selected="false" data-status="waiting">Waiting</button>
+              <button class="tab" role="tab" aria-selected="false" data-status="notified">Notified</button>
+              <button class="tab" role="tab" aria-selected="false" data-status="seated">Seated</button>
+            </nav>
+          </div>
+
+          <div id="loadingIndicator" class="loading" hidden>Loading tickets…</div>
+          <div id="emptyState" class="empty" hidden>
+            <span class="empty-mark">◧</span>
+            <p>No data found</p>
+            <span class="empty-sub">Tickets will appear here once players join the queue</span>
+          </div>
+          <ul id="ticketList" class="ticket-list"></ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
