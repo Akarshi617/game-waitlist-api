@@ -67,7 +67,7 @@ POST /waitlist
 
 ## Live Deployment
 
-[YOUR_LIVE_LINK]
+https://game-waitlist-api-nine.vercel.app/
 
 ## Author
 
